@@ -60,7 +60,7 @@ function triangoloDiTartaglia(n) {
         console.log(spazi + riga);
     }
 }
-
+// Chiamate di funzione
 calcolatrice();
 console.log(inverti_cifre(12345));
 triangoloDiTartaglia(5);
