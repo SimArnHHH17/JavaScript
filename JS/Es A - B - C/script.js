@@ -1,4 +1,7 @@
-// Funzione calcolatrice
+/*Scrivere una semplice applicazione calcolatrice. Chiedere all'utente due numeri e una stringa che rappresenta un'operazione matematica, uno tra "+", "-", "*", "/", "**". 
+Se l'input dell'utente è valido, calcola il risultato e lo mostra all'utente. 
+Se l'input dell'utente non è valido, visualizza un messaggio che informa l'utente che si è verificato un errore. 
+*/
 function calcolatrice() {
     let num1 = parseFloat(prompt("Inserisci il primo numero:"));
     let num2 = parseFloat(prompt("Inserisci il secondo numero:"));
@@ -30,37 +33,12 @@ function calcolatrice() {
     alert("Il risultato è: " + risultato);
 }
 
-// Funzione per invertire le cifre di un numero intero
+// Scrivere una funzione chiamata "inverti_cifre" che prende in input un numero intero e lo restituisce con le cifre invertite .
 function inverti_cifre(numero) {
     let numeroInvertito = parseInt(numero.toString().split('').reverse().join(''));
     return numeroInvertito;
 }
 
-// Funzione per generare il triangolo di Tartaglia
-function triangoloDiTartaglia(n) {
-    let triangolo = [];
-
-    for (let i = 0; i < n; i++) {
-        triangolo[i] = [];
-        for (let j = 0; j <= i; j++) {
-            if (j === 0 || j === i) {
-                triangolo[i][j] = 1;
-            } else {
-                triangolo[i][j] = triangolo[i - 1][j - 1] + triangolo[i - 1][j];
-            }
-        }
-    }
-
-    for (let i = 0; i < n; i++) {
-        let spazi = ' '.repeat((n - i - 1) * 3);
-        let riga = '';
-        for (let j = 0; j <= i; j++) {
-            riga += `${triangolo[i][j].toString().padStart(3)} `;
-        }
-        console.log(spazi + riga);
-    }
-}
 // Chiamate di funzione
 calcolatrice();
 console.log(inverti_cifre(12345));
-triangoloDiTartaglia(5);
