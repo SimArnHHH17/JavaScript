@@ -3,8 +3,8 @@
 <head>
   <title>Script richiesti</title>
   <style>
-   .evidenziato 
-    {
+    /* classe CSS per evidenziare le righe della tabella */
+   .evidenziato {
       background-color: #ccc;
     }
   </style>
@@ -14,67 +14,60 @@
   <input id="myInputField" type="text" placeholder="Inserisci testo">
   <button>Click me!</button>
   <button>Click me too!</button>
-
   <script>
     // 1. Script che visualizza le proprietà principali dell'oggetto windows
     console.log("Proprietà dell'oggetto windows:");
     console.log("-------------------------------");
-    console.log("windows.innerHeight:", window.innerHeight);
-    console.log("windows.innerWidth:", window.innerWidth);
-    console.log("windows.outerHeight:", window.outerHeight);
-    console.log("windows.outerWidth:", window.outerWidth);
-    console.log("windows.location:", window.location);
-    console.log("windows.history:", window.history);
-    console.log("windows.document:", window.document);
-    console.log("windows.navigator:", window.navigator);
+    console.log("windows.innerHeight:", window.innerHeight); // altezza dell'area di contenuto della finestra
+    console.log("windows.innerWidth:", window.innerWidth); // larghezza dell'area di contenuto della finestra
+    console.log("windows.outerHeight:", window.outerHeight); // altezza della finestra, inclusi toolbar e bordi
+    console.log("windows.outerWidth:", window.outerWidth); // larghezza della finestra, inclusi toolbar e bordi
+    console.log("windows.location:", window.location); // oggetto location della finestra
+    console.log("windows.history:", window.history); // oggetto history della finestra
+    console.log("windows.document:", window.document); // oggetto document della finestra
+    console.log("windows.navigator:", window.navigator); // oggetto navigator della finestra
 
     // 2. Script che visualizza le proprietà principali dell'oggetto navigator
     console.log("Proprietà dell'oggetto navigator:");
     console.log("-------------------------------");
-    console.log("navigator.userAgent:", navigator.userAgent);
-    console.log("navigator.appName:", navigator.appName);
-    console.log("navigator.appVersion:", navigator.appVersion);
-    console.log("navigator.platform:", navigator.platform);
-    console.log("navigator.language:", navigator.language);
-    console.log("navigator.onLine:", navigator.onLine);
+    console.log("navigator.userAgent:", navigator.userAgent); // stringa dell'agente utente del browser
+    console.log("navigator.appName:", navigator.appName); // nome del browser
+    console.log("navigator.appVersion:", navigator.appVersion); // versione del browser
+    console.log("navigator.platform:", navigator.platform); // piattaforma (sistema operativo) del browser
+    console.log("navigator.language:", navigator.language); // lingua del browser
+    console.log("navigator.onLine:", navigator.onLine); // booleano che indica se il browser è online
 
     // 3. Modificare il colore e lo sfondo dei pulsanti presenti nella pagina
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => 
-    {
-      button.style.backgroundColor = "orange";
-      button.style.color = "white";
+    const buttons = document.querySelectorAll("button"); // seleziona tutti i pulsanti della pagina
+    buttons.forEach((button) => {
+      button.style.backgroundColor = "orange"; // imposta il colore di sfondo dei pulsanti a arancione
+      button.style.color = "white"; // imposta il colore del testo dei pulsanti a bianco
     });
 
     // 4. Convertire il testo in maiuscolo di una casella di testo
-    const inputField = document.getElementById("myInputField");
-    inputField.addEventListener("input", () => 
-    {
-      inputField.value = inputField.value.toUpperCase();
+    const inputField = document.getElementById("myInputField"); // seleziona la casella di testo con id "myInputField"
+    inputField.addEventListener("input", () => {
+      inputField.value = inputField.value.toUpperCase(); // converte il testo in maiuscolo quando l'utente digita
     });
 
     // 5. Creare dinamicamente una tabella html, contenente la tavola pitagorica 10x10, utilizzando i metodi createElement e appendChild
-    const table = document.createElement("table");
-    document.body.appendChild(table);
-    for (let i = 0; i < 10; i++) 
-    {
-      const row = document.createElement("tr");
-      table.appendChild(row);
-      for (let j = 0; j < 10; j++) 
-      {
-        const cell = document.createElement("td");
-        cell.textContent = (i + 1) * (j + 1);
-        row.appendChild(cell);
+    const table = document.createElement("table"); // crea un elemento table
+    document.body.appendChild(table); // aggiunge la tabella al corpo della pagina
+    for (let i = 0; i < 10; i++) {
+      const row = document.createElement("tr"); // crea un elemento tr (riga della tabella)
+      table.appendChild(row); // aggiunge la riga alla tabella
+      for (let j = 0; j < 10; j++) {
+        const cell = document.createElement("td"); // crea un elemento td (cella della tabella)
+        cell.textContent = (i + 1) * (j + 1); // imposta il contenuto della cella con il prodotto di i e j
+        row.appendChild(cell); // aggiunge la cella alla riga
       }
     }
 
     // 6. Sfruttando il metodo setAttribute aggiungere alle righe dispari della precedente tabella l'attributo class=”evidenziato”
-    const rows = table.querySelectorAll("tr");
-    rows.forEach((row, index) => 
-    {
-      if (index % 2!== 0) 
-      {
-        row.setAttribute("class", "evidenziato");
+    const rows = table.querySelectorAll("tr"); // seleziona tutte le righe della tabella
+    rows.forEach((row, index) => {
+      if (index % 2!== 0) { // se l'indice della riga è dispari
+        row.setAttribute("class", "evidenziato"); // aggiunge la classe "evidenziato"
       }
     });
   </script>
