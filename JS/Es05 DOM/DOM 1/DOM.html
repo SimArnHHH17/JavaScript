@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Script richiesti</title>
+  <style>
+   .evidenziato 
+    {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Script richiesti</h1>
+  <input id="myInputField" type="text" placeholder="Inserisci testo">
+  <button>Click me!</button>
+  <button>Click me too!</button>
+
+  <script>
+    // 1. Script che visualizza le proprietà principali dell'oggetto windows
+    console.log("Proprietà dell'oggetto windows:");
+    console.log("-------------------------------");
+    console.log("windows.innerHeight:", window.innerHeight);
+    console.log("windows.innerWidth:", window.innerWidth);
+    console.log("windows.outerHeight:", window.outerHeight);
+    console.log("windows.outerWidth:", window.outerWidth);
+    console.log("windows.location:", window.location);
+    console.log("windows.history:", window.history);
+    console.log("windows.document:", window.document);
+    console.log("windows.navigator:", window.navigator);
+
+    // 2. Script che visualizza le proprietà principali dell'oggetto navigator
+    console.log("Proprietà dell'oggetto navigator:");
+    console.log("-------------------------------");
+    console.log("navigator.userAgent:", navigator.userAgent);
+    console.log("navigator.appName:", navigator.appName);
+    console.log("navigator.appVersion:", navigator.appVersion);
+    console.log("navigator.platform:", navigator.platform);
+    console.log("navigator.language:", navigator.language);
+    console.log("navigator.onLine:", navigator.onLine);
+
+    // 3. Modificare il colore e lo sfondo dei pulsanti presenti nella pagina
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => 
+    {
+      button.style.backgroundColor = "orange";
+      button.style.color = "white";
+    });
+
+    // 4. Convertire il testo in maiuscolo di una casella di testo
+    const inputField = document.getElementById("myInputField");
+    inputField.addEventListener("input", () => 
+    {
+      inputField.value = inputField.value.toUpperCase();
+    });
+
+    // 5. Creare dinamicamente una tabella html, contenente la tavola pitagorica 10x10, utilizzando i metodi createElement e appendChild
+    const table = document.createElement("table");
+    document.body.appendChild(table);
+    for (let i = 0; i < 10; i++) 
+    {
+      const row = document.createElement("tr");
+      table.appendChild(row);
+      for (let j = 0; j < 10; j++) 
+      {
+        const cell = document.createElement("td");
+        cell.textContent = (i + 1) * (j + 1);
+        row.appendChild(cell);
+      }
+    }
+
+    // 6. Sfruttando il metodo setAttribute aggiungere alle righe dispari della precedente tabella l'attributo class=”evidenziato”
+    const rows = table.querySelectorAll("tr");
+    rows.forEach((row, index) => 
+    {
+      if (index % 2!== 0) 
+      {
+        row.setAttribute("class", "evidenziato");
+      }
+    });
+  </script>
+</body>
+</html>
