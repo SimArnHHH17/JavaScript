@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Script</title>
+<style>
+    .evidenziato {
+        background-color: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+
+<!-- Punto 1: Modifica colore e sfondo dei pulsanti al passaggio del mouse -->
+<button id="pulsante1">Pulsante 1</button>
+<button id="pulsante2">Pulsante 2</button>
+<script>
+    // Per ogni pulsante, aggiungi eventi per il passaggio del mouse
+    document.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("mouseover", function() { // Al passaggio del mouse
+            btn.style.backgroundColor = "#00ff00"; // Cambia colore sfondo
+            btn.style.color = "#000000"; // Cambia colore testo
+        });
+        btn.addEventListener("mouseout", function() { // Quando il mouse esce dall'area del pulsante
+            btn.style.backgroundColor = ""; // Ripristina colore sfondo predefinito
+            btn.style.color = ""; // Ripristina colore testo predefinito
+        });
+    });
+</script>
+
+<!-- Punto 2: Converti testo in maiuscolo durante la digitazione -->
+<input type="text" id="codice_fiscale">
+<script>
+    // Aggiungi un listener per l'evento "input" (quando il testo cambia)
+    document.getElementById("codice_fiscale").addEventListener("input", function() {
+        this.value = this.value.toUpperCase(); // Converti il testo in maiuscolo
+    });
+</script>
+
+<!-- Punto 3: Cambia sfondo della casella di testo al focus e blur -->
+<input type="text" id="casella_testo">
+<script>
+    var inputField = document.getElementById("casella_testo");
+    inputField.addEventListener("focus", function() { // Quando la casella prende il focus
+        this.style.backgroundColor = "#ffffcc"; // Cambia colore sfondo
+    });
+    inputField.addEventListener("blur", function() { // Quando la casella perde il focus
+        this.style.backgroundColor = ""; // Ripristina colore sfondo predefinito
+    });
+</script>
+
+<!-- Punto 4: Nascondi testo dopo il click -->
+<p id="testoDaNascondere">Testo da nascondere</p>
+<script>
+    document.getElementById("testoDaNascondere").addEventListener("click", function() {
+        this.hidden = true; // Nascondi il testo impostando la proprietà hidden a true
+    });
+</script>
+
+<!-- Punto 5: Mostra messaggio di errore -->
+<input type="password" id="password">
+<input type="password" id="ripetipassword">
+<p id="errorePassword" style="display: none; color: red;">Le password non corrispondono</p>
+<script>
+    var passwordField = document.getElementById("password");
+    var repeatPasswordField = document.getElementById("ripetipassword");
+    var errorParagraph = document.getElementById("errorePassword");
+
+    repeatPasswordField.addEventListener("input", function() {
+        if (passwordField.value !== repeatPasswordField.value) {
+            errorParagraph.style.display = "block"; // Mostra il messaggio di errore
+        } else {
+            errorParagraph.style.display = "none"; // Nascondi il messaggio di errore
+        }
+    });
+</script>
+
+<!-- Punto 6: Cambia colore sfondo campo password -->
+<input type="password" id="passwordDaValidare">
+<script>
+    var passwordInput = document.getElementById("passwordDaValidare");
+    passwordInput.addEventListener("input", function() {
+        var password = this.value;
+        var backgroundColor = "";
+
+        // Requisiti: almeno 8 caratteri, una lettera maiuscola, una lettera minuscola, un numero
+        if (password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password)) {
+            backgroundColor = "#b3ffb3"; // Verde se la password è valida
+        } else {
+            backgroundColor = "#ffcccc"; // Rosso se la password non è valida
+        }
+
+        this.style.backgroundColor = backgroundColor; // Cambia colore sfondo del campo password
+    });
+</script>
+
+</body>
+</html>
