@@ -5,7 +5,7 @@
   <style>
     /* classe CSS per evidenziare le righe della tabella */
    .evidenziato {
-      background-color: #05fcef;
+      background-color: #1afc05;
     }
   </style>
 </head>
@@ -66,7 +66,7 @@
     // 6. Sfruttando il metodo setAttribute aggiungere alle righe dispari della precedente tabella l'attributo class=”evidenziato”
     const rows = table.querySelectorAll("tr"); // seleziona tutte le righe della tabella
     rows.forEach((row, index) => {
-      if (index % 2!== 0) { // se l'indice della riga è dispari
+      if (index % 2!== 1) { // se l'indice della riga è dispari
         row.setAttribute("class", "evidenziato"); // aggiunge la classe "evidenziato"
       }
     });
