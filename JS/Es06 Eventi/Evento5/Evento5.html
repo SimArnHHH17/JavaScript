@@ -1,0 +1,18 @@
+<!-- Creiamo due campi di input per le password, ciascuno con un ID univoco -->
+<input id="password" type="password">
+<input id="ripetipassword" type="password">
+
+<script>
+// Otteniamo il riferimento ai campi di input della password dal documento utilizzando gli ID
+const passwordInput = document.getElementById('password'); // Campo di input della password
+const repeatPasswordInput = document.getElementById('ripetipassword'); // Campo di input della ripetizione della password
+
+// Aggiungiamo un gestore di eventi per l'evento 'change' (change all'interno del campo di ripetizione della password)
+repeatPasswordInput.addEventListener('change', function() {
+    // Verifichiamo se il valore nel campo di ripetizione della password è diverso dal valore nel campo della password
+    if (repeatPasswordInput.value !== passwordInput.value) {
+        // Se le password non corrispondono, mostriamo un messaggio di avviso tramite un alert
+        alert('Le password non corrispondono!');
+    }
+});
+</script>

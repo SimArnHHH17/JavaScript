@@ -1,0 +1,12 @@
+<input id="codiceFiscale" type="text"> 
+
+<script>
+// Otteniamo il riferimento al campo di input dal documento utilizzando l'ID
+const codiceFiscaleInput = document.getElementById('codiceFiscale');
+
+// Aggiungiamo un gestore di eventi per l'evento 'input' (input all'interno del campo di testo)
+codiceFiscaleInput.addEventListener('input', function() {
+    // Quando viene inserito del testo nel campo di input, convertiamo il testo in maiuscolo
+    codiceFiscaleInput.value = codiceFiscaleInput.value.toUpperCase();
+});
+</script>

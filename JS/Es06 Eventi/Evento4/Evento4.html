@@ -1,0 +1,11 @@
+<p id="myText">Testo da nascondere</p> <!-- Creiamo un paragrafo con l'ID "myText" -->
+<script>
+// Otteniamo il riferimento al paragrafo dal documento utilizzando l'ID
+const myText = document.getElementById('myText');
+
+// Aggiungiamo un gestore di eventi per l'evento 'click' (click sul paragrafo)
+myText.addEventListener('click', function() {
+    // Quando il paragrafo viene cliccato, impostiamo la proprietà 'hidden' a true per nascondere il testo
+    myText.hidden = true;
+});
+</script>

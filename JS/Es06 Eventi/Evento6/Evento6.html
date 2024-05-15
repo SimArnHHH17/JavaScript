@@ -1,0 +1,24 @@
+<input id="password" type="password">
+
+<script>
+// Otteniamo il riferimento al campo di input della password dal documento utilizzando l'ID
+const passwordInput = document.getElementById('password');
+
+// Aggiungiamo un gestore di eventi per l'evento 'input' (input all'interno del campo di password)
+passwordInput.addEventListener('input', function() {
+    // Otteniamo il valore inserito nel campo di password
+    const password = passwordInput.value;
+    
+    // Verifichiamo se la password soddisfa i requisiti:
+    // - Ha almeno 8 caratteri
+    // - Contiene almeno una lettera maiuscola
+    // - Contiene almeno un numero
+    if (password.length < 8 || !/[A-Z]/.test(password) || !/\d/.test(password)) {
+        // Se la password non soddisfa i requisiti, impostiamo il colore di sfondo del campo di password su rosso
+        passwordInput.style.backgroundColor = 'red';
+    } else {
+        // Se la password soddisfa i requisiti, impostiamo il colore di sfondo del campo di password su verde
+        passwordInput.style.backgroundColor = 'green';
+    }
+});
+</script>

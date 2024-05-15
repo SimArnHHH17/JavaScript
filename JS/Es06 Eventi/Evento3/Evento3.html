@@ -1,0 +1,18 @@
+<input id="myInput" type="text"> <!-- Creiamo un campo  input !-->
+
+<script>
+// Otteniamo il riferimento al campo di input dal documento utilizzando l'ID
+const inputField = document.getElementById('myInput');
+
+// Aggiungiamo un gestore di eventi per l'evento 'focus' (quando il campo di input ottiene il focus)
+inputField.addEventListener('focus', function() {
+    // Quando il campo di input ottiene il focus, impostiamo il colore di sfondo su lightblue
+    inputField.style.backgroundColor = 'lightblue';
+});
+
+// Aggiungiamo un gestore di eventi per l'evento 'blur' (quando il campo di input perde il focus)
+inputField.addEventListener('blur', function() {
+    // Quando il campo di input perde il focus, ripristiniamo il colore di sfondo ai valori predefiniti
+    inputField.style.backgroundColor = '';
+});
+</script>
